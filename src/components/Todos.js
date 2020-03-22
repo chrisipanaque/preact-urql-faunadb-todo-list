@@ -3,7 +3,7 @@ import { useState } from "preact/hooks";
 import Todo from "./Todo";
 import AddTodo from "./AddTodo";
 
-const TODOS = `
+const ALL_TODOS = `
   query {
     getTodos {
       data {
@@ -37,19 +37,20 @@ const DELETE_TODO = `
 
 const Todos = () => {
   const [input, setInput] = useState({
-    task: ""
+    task: "",
+    isCompleted: false
   });
 
-  const [result] = useQuery({ query: TODOS, requestPolicy: "network-only" });
+  const [result] = useQuery({
+    query: ALL_TODOS
+  });
   const [addTodoResult, addTodoMutation] = useMutation(ADD_TODO);
   const [deleteTodoResult, deleteTodoMutation] = useMutation(DELETE_TODO);
 
   const addTodo = async () => {
     try {
-      await addTodoMutation({
-        task: input.task,
-        isCompleted: false
-      });
+      console.log("input", input);
+      await addTodoMutation(input);
       console.log("todo added");
     } catch (error) {
       console.log(error);
@@ -67,7 +68,8 @@ const Todos = () => {
 
   const handleInput = event => {
     event.persist();
-    setInput(() => ({
+    setInput(input => ({
+      ...input,
       [event.target.name]: event.target.value
     }));
   };
@@ -76,8 +78,7 @@ const Todos = () => {
     event.preventDefault();
     addTodo();
     setInput({
-      task: "",
-      isCompleted: false
+      task: ""
     });
   };
 
