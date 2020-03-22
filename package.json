@@ -25,6 +25,7 @@
     "sirv-cli": "^0.4.5"
   },
   "dependencies": {
+    "formik": "^2.1.4",
     "graphql": "^14.6.0",
     "preact": "^10.1.0",
     "preact-render-to-string": "^5.1.2",
