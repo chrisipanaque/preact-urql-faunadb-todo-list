@@ -1,6 +1,5 @@
 import { createClient, Provider } from "urql";
 import Todos from "./components/Todos";
-import AddTodo from "./components/AddTodo";
 
 const client = createClient({
   url: `${process.env.PREACT_APP_FAUNADB_URL}`,
@@ -15,7 +14,6 @@ const client = createClient({
 export default () => {
   return (
     <Provider value={client}>
-      <AddTodo />
       <Todos />
     </Provider>
   );
