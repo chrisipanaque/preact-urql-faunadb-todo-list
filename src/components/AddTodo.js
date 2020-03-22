@@ -13,7 +13,6 @@ const ADD_TODO = `
 
 const AddTodo = () => {
   const [addTodoResult, addTodo] = useMutation(ADD_TODO);
-  const { data, fetching, error } = addTodoResult;
 
   return (
     <Formik
