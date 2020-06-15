@@ -16,7 +16,7 @@ const AddTodo = ({ addTodo }) => {
     >
       {() => (
         <Form>
-          <Field type="text" name="task" />
+          <Field type="text" id="task" name="task" />
         </Form>
       )}
     </Formik>

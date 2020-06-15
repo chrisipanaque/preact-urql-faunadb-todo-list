@@ -36,53 +36,39 @@ const DELETE_TODO = `
 `;
 
 const Todos = () => {
-  const [input, setInput] = useState({
-    task: "",
-    isCompleted: false
-  });
-
-  const [result] = useQuery({
+  const [getTodosResult] = useQuery({
     query: ALL_TODOS
   });
+
   const [addTodoResult, addTodoMutation] = useMutation(ADD_TODO);
+
   const [deleteTodoResult, deleteTodoMutation] = useMutation(DELETE_TODO);
 
-  const addTodo = async () => {
+  const addTodo = async (values) => {
     try {
-      console.log("input", input);
-      await addTodoMutation(input);
+      console.log("values", values);
+
+      await addTodoMutation(values);
+
       console.log("todo added");
+      console.log("addTodoResult", addTodoResult);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const deleteTodo = async id => {
+  const deleteTodo = async (id) => {
     try {
       await deleteTodoMutation({ id });
+
       console.log("deleted");
+      console.log("deleteTodoResult", deleteTodoResult);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleInput = event => {
-    event.persist();
-    setInput(input => ({
-      ...input,
-      [event.target.name]: event.target.value
-    }));
-  };
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    addTodo();
-    setInput({
-      task: ""
-    });
-  };
-
-  const { data, fetching, error, stale } = result;
+  const { data, fetching, error, stale } = getTodosResult;
 
   if (stale) return <div>Staling..</div>;
   if (fetching) return <div>Fetching..</div>;
@@ -90,17 +76,9 @@ const Todos = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          id="task"
-          name="task"
-          onChange={handleInput}
-          value={input.task}
-        />
-      </form>
+      <AddTodo addTodo={addTodo} />
 
-      {data.getTodos.data.map(todo => (
+      {data.getTodos.data.map((todo) => (
         <Todo key={todo._id} todo={todo} deleteTodo={deleteTodo} />
       ))}
     </>
