@@ -1,1 +1,9 @@
-# Todolist app using preact, urql and faunadb using its graphql api.
+## Live Demo
+https://preact-urql-faunadb-todo-list.netlify.app/
+
+## Frontend
+- preact
+- urql
+
+## Database
+- faunadb
