@@ -1,9 +1,9 @@
 import { createClient, Provider } from "urql";
-import Todos from "./components/Todos";
+import TodoApp from "./components";
 
 const client = createClient({
   url: `${process.env.PREACT_APP_FAUNADB_URL}`,
-  
+
   fetchOptions: () => {
     const token = `${process.env.PREACT_APP_FAUNADB_TOKEN}`;
 
@@ -16,7 +16,7 @@ const client = createClient({
 export default () => {
   return (
     <Provider value={client}>
-      <Todos />
+      <TodoApp />
     </Provider>
   );
 };
