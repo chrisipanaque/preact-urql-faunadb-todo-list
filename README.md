@@ -8,18 +8,6 @@ https://preact-urql-faunadb-todo-list.netlify.app/
 ## Database
 - faunadb
 
-## FaunaDB Schema
-```js
-type Todo {
-  task: String!
-  isCompleted: Boolean!
-}
-
-type Query {
-  getTodos: [Todo]!
-}
-```
-
 ## Environment Variables
 ```js 
 PREACT_APP_FAUNADB_URL

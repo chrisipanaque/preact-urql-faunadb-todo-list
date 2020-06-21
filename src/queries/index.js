@@ -21,8 +21,8 @@ export const ADD_TODO = `
 `;
 
 export const COMPLETE_TODO = `
-  mutation ($id: ID!, $isCompleted: Boolean!) {
-    completeTodo(data: {id: $id, isCompleted: $isCompleted}) {
+  mutation ($id: ID!, $task: String!, $isCompleted: Boolean!) {
+    updateTodo(id: $id, data: {task: $task, isCompleted: $isCompleted,}) {
       _id
       task
       isCompleted

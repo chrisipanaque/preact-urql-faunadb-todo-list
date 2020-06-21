@@ -31,9 +31,9 @@ export default () => {
     }
   };
 
-  const completeTodo = async (id, isCompleted) => {
+  const completeTodo = async (id, task, isCompleted) => {
     try {
-      await completeTodoMutation({ id, isCompleted });
+      await completeTodoMutation({ id, task, isCompleted });
     } catch (error) {
       console.log(error);
     }
