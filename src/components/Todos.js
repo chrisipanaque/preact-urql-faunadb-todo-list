@@ -1,6 +1,6 @@
 import Todo from "./Todo";
 
-const Todos = ({ getTodosResult, deleteTodo }) => {
+const Todos = ({ getTodosResult, completeTodo, deleteTodo }) => {
   const { data, fetching, error, stale } = getTodosResult;
 
   if (stale) return <div>Staling..</div>;
@@ -10,7 +10,12 @@ const Todos = ({ getTodosResult, deleteTodo }) => {
   return (
     <>
       {data.getTodos.data.map((todo) => (
-        <Todo key={todo._id} todo={todo} deleteTodo={deleteTodo} />
+        <Todo
+          key={todo._id}
+          todo={todo}
+          completeTodo={completeTodo}
+          deleteTodo={deleteTodo}
+        />
       ))}
     </>
   );

@@ -2,7 +2,7 @@ import AddTodo from "./AddTodo";
 import Todos from "./Todos";
 
 import { useQuery, useMutation } from "urql";
-import { ALL_TODOS, ADD_TODO, DELETE_TODO } from "../queries";
+import { ALL_TODOS, ADD_TODO, DELETE_TODO, COMPLETE_TODO } from "../queries";
 
 export default () => {
   const [getTodosResult] = useQuery({
@@ -10,6 +10,8 @@ export default () => {
   });
 
   const [addTodoResult, addTodoMutation] = useMutation(ADD_TODO);
+
+  const [completeTodoResult, completeTodoMutation] = useMutation(COMPLETE_TODO);
 
   const [deleteTodoResult, deleteTodoMutation] = useMutation(DELETE_TODO);
 
@@ -29,10 +31,22 @@ export default () => {
     }
   };
 
+  const completeTodo = async (id, isCompleted) => {
+    try {
+      await completeTodoMutation({ id, isCompleted });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <AddTodo addTodo={addTodo} />
-      <Todos getTodosResult={getTodosResult} deleteTodo={deleteTodo} />
+      <Todos
+        getTodosResult={getTodosResult}
+        completeTodo={completeTodo}
+        deleteTodo={deleteTodo}
+      />
     </>
   );
 };

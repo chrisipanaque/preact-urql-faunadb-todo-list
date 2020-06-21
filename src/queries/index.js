@@ -20,6 +20,16 @@ export const ADD_TODO = `
   }
 `;
 
+export const COMPLETE_TODO = `
+  mutation ($id: ID!, $isCompleted: Boolean!) {
+    completeTodo(data: {id: $id, isCompleted: $isCompleted}) {
+      _id
+      task
+      isCompleted
+    }
+  }
+`;
+
 export const DELETE_TODO = `
   mutation ($id: ID!) {
     deleteTodo(id: $id) {
