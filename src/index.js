@@ -1,16 +1,16 @@
-import { createClient, Provider } from "urql";
-import TodoApp from "./components";
+import { createClient, Provider } from 'urql';
+import TodoApp from './components';
 
 const client = createClient({
-  url: `${process.env.PREACT_APP_FAUNADB_URL}`,
+  url: `${process.env.FAUNADB_URL}`,
 
   fetchOptions: () => {
-    const token = `${process.env.PREACT_APP_FAUNADB_TOKEN}`;
+    const token = `${process.env.FAUNADB_TOKEN}`;
 
     return {
-      headers: { authorization: token ? `Bearer ${token}` : "" }
+      headers: { authorization: token ? `Bearer ${token}` : '' },
     };
-  }
+  },
 });
 
 export default () => {
