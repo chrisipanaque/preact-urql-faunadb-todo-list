@@ -1,21 +1,20 @@
-import AllTodos from '../components/AllTodos';
+import { AllTodosType } from '../interfaces';
 import { getTodos } from '../api/getTodos';
+import AllTodos from '../components/AllTodos';
 
-const TodoApp = ({ allTodos }: any) => {
+export default function TodoApp({ allTodos }: AllTodosType) {
   return (
     <>
       <AllTodos allTodos={allTodos} />
     </>
   );
-};
+}
 
-export default TodoApp;
-
-export const getStaticProps = async () => {
-  const allTodos = await getTodos();
+export async function getStaticProps() {
+  const allTodos: AllTodosType = await getTodos();
   return {
     props: {
       allTodos,
     },
   };
-};
+}
