@@ -1,5 +1,5 @@
-import AllTodos from '../src/components/AllTodos';
-import { getTodos } from './api/getTodos';
+import AllTodos from '../components/AllTodos';
+import { getTodos } from '../api/getTodos';
 
 const TodoApp = ({ allTodos }: any) => {
   return (
