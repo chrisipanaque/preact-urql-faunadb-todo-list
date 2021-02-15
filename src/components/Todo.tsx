@@ -1,4 +1,4 @@
-const Todo = ({ todo, completeTodo, deleteTodo }) => {
+const Todo = ({ todo, completeTodo, deleteTodo }: any) => {
   const { _id, task, isCompleted } = todo;
 
   const handleChange = () => {

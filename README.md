@@ -17,5 +17,5 @@ Deprecated: https://preact-urql-faunadb-todo-list.netlify.app/
 
 ```js
 FAUNADB_URL;
-FAUNADB_TOKEN;
+FAUNADB_SECRET_KEY;
 ```

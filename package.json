@@ -1,12 +1,15 @@
 {
   "name": "typescript-nextjs-urql-faunadb-todo-list",
   "license": "MIT",
+  "version": "1.0.0",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "formik": "^2.2.6",
+    "graphql": "^15.5.0",
     "next": "^10.0.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
