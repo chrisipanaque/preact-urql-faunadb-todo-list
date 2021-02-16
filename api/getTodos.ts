@@ -3,7 +3,9 @@ import { ALL_TODOS_QUERY } from './queries';
 
 export async function getTodos() {
   const {
-    data: { getTodos: allTodos },
+    data: {
+      getTodos: { data: allTodos },
+    },
   } = await client.query(ALL_TODOS_QUERY).toPromise();
 
   return allTodos;

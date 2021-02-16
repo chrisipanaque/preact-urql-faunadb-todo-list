@@ -1,9 +1,9 @@
-export default function Todos({ allTodos }: any) {
-  const { data } = allTodos;
+import { AllTodosType } from '../interfaces';
 
+export default function AllTodos({ allTodos }: AllTodosType) {
   return (
     <>
-      {data.map(({ _id, task }: any) => (
+      {allTodos.map(({ _id, task }: any) => (
         <div key={_id}>{task}</div>
       ))}
     </>
