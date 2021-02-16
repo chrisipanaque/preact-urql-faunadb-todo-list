@@ -1,23 +1,19 @@
-import { AllTodosType } from '../interfaces';
-import { getTodos } from '../api/getTodos';
-import { addTodo } from '../api/addTodo';
 import AllTodos from '../components/AllTodos';
-import AddTodo from '../components/AddTodo';
+import { withUrqlClient } from 'next-urql';
+import { useQuery } from 'urql';
+import { client } from '../api/client';
+import { ALL_TODOS_QUERY } from '../api/queries';
 
-export default function TodoApp({ allTodos }: AllTodosType) {
+const TodoApp = () => {
+  const [allTodos] = useQuery({
+    query: ALL_TODOS_QUERY,
+  });
+
   return (
     <>
-      <AddTodo addTodo={addTodo} />
-      <AllTodos allTodos={allTodos} />
+      <AllTodos allTodos={allTodos.data.getTodos.data} />
     </>
   );
-}
+};
 
-export async function getStaticProps() {
-  const allTodos: AllTodosType = await getTodos();
-  return {
-    props: {
-      allTodos,
-    },
-  };
-}
+export default withUrqlClient(client, { ssr: true })(TodoApp);
