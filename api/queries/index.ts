@@ -11,7 +11,7 @@ query {
 `;
 
 export const ADD_TODO_MUTATION = `
-  mutation ($task: String!, $isCompleted: Boolean!) {
+  mutation createTodo($task: String!, $isCompleted: Boolean!) {
     createTodo(data: {task: $task, isCompleted: $isCompleted}) {
       _id
       task
