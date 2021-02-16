@@ -1,7 +1,6 @@
 import AllTodos from '../components/AllTodos';
-import { withUrqlClient } from 'next-urql';
+import AddTodo from '../components/AddTodo';
 import { useQuery } from 'urql';
-import { client } from '../api/client';
 import { ALL_TODOS_QUERY } from '../api/queries';
 
 const TodoApp = () => {
@@ -11,9 +10,10 @@ const TodoApp = () => {
 
   return (
     <>
+      <AddTodo />
       <AllTodos allTodos={allTodos.data.getTodos.data} />
     </>
   );
 };
 
-export default withUrqlClient(client, { ssr: true })(TodoApp);
+export default TodoApp;
