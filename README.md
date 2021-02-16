@@ -1,6 +1,8 @@
 ## Live Demo
 
-Deprecated: https://preact-urql-faunadb-todo-list.netlify.app/
+https://typescript-nextjs-urql-faunadb-todo-list.vercel.app/
+
+## Languages
 
 - TypeScript
 
@@ -15,7 +17,16 @@ Deprecated: https://preact-urql-faunadb-todo-list.netlify.app/
 
 ## Environment Variables
 
+- Development:
+
 ```js
-FAUNADB_URL;
-FAUNADB_SECRET_KEY;
+ENV_FAUNADB_URL;
+ENV_FAUNADB_SECRET_KEY;
+```
+
+- Production:
+
+```js
+NEXT_PUBLIC_ENV_FAUNADB_URL;
+NEXT_PUBLIC_ENV_FAUNADB_SECRET_KEY;
 ```
