@@ -1,15 +1,21 @@
 ## Live Demo
-https://preact-urql-faunadb-todo-list.netlify.app/
+
+Deprecated: https://preact-urql-faunadb-todo-list.netlify.app/
+
+- TypeScript
 
 ## Frontend
-- preact
-- urql
+
+- Nextjs
+- URQL
 
 ## Database
-- faunadb
+
+- FaunaDB
 
 ## Environment Variables
-```js 
-PREACT_APP_FAUNADB_URL
-PREACT_APP_FAUNADB_TOKEN
+
+```js
+FAUNADB_URL;
+FAUNADB_SECRET_KEY;
 ```

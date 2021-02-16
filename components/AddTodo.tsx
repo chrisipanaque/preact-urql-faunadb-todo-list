@@ -1,6 +1,6 @@
 import { Formik, Form, Field } from "formik";
 
-const AddTodo = ({ addTodo }) => {
+const AddTodo = ({ addTodo }: any) => {
   return (
     <Formik
       initialValues={{

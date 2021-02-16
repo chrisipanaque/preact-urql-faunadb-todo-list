@@ -1,4 +1,4 @@
-export const ALL_TODOS = `
+export const ALL_TODOS_QUERY = `
 query {
   getTodos {
     data {
@@ -10,8 +10,8 @@ query {
 }
 `;
 
-export const ADD_TODO = `
-  mutation ($task: String!, $isCompleted: Boolean!) {
+export const ADD_TODO_MUTATION = `
+  mutation createTodo($task: String!, $isCompleted: Boolean!) {
     createTodo(data: {task: $task, isCompleted: $isCompleted}) {
       _id
       task
@@ -20,7 +20,7 @@ export const ADD_TODO = `
   }
 `;
 
-export const COMPLETE_TODO = `
+export const COMPLETE_TODO_MUTATION = `
   mutation ($id: ID!, $task: String!, $isCompleted: Boolean!) {
     updateTodo(id: $id, data: {task: $task, isCompleted: $isCompleted,}) {
       _id
@@ -30,7 +30,7 @@ export const COMPLETE_TODO = `
   }
 `;
 
-export const DELETE_TODO = `
+export const DELETE_TODO_MUTATION = `
   mutation ($id: ID!) {
     deleteTodo(id: $id) {
       _id

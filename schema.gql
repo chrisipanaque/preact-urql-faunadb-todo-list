@@ -2,7 +2,3 @@ type Todo {
   task: String!
   isCompleted: Boolean!
 }
-
-type Query {
-  getTodos: [Todo]!
-}
