@@ -1,5 +1,5 @@
 {
-  "name": "typescript-nextjs-urql-faunadb-todo-list",
+  "name": "nextjs-with-urql-faunadb-typescript",
   "license": "MIT",
   "version": "1.0.0",
   "scripts": {
