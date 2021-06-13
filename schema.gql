@@ -1,4 +1,9 @@
 type Todo {
   task: String!
   isCompleted: Boolean!
+  time: Time!
+}
+
+type Query {
+   getTodos: [Todo!]
 }

@@ -1,19 +1,27 @@
-import { TodoType } from '../types';
+import { TodoType } from '../types/types';
 import { useMutation } from 'urql';
-import { COMPLETE_TODO_MUTATION, DELETE_TODO_MUTATION } from '../api/queries';
+import {
+  COMPLETE_TODO_MUTATION,
+  DELETE_TODO_MUTATION,
+} from '../api/queries/queries';
 
 type TodoProps = {
   todo: TodoType;
 };
 
 const Todo: React.FunctionComponent<TodoProps> = ({ todo }: TodoProps) => {
-  const { _id, task, isCompleted } = todo;
+  const { _id, task, isCompleted, time } = todo;
 
   const [, deleteTodo] = useMutation(DELETE_TODO_MUTATION);
   const [, updateTodo] = useMutation(COMPLETE_TODO_MUTATION);
 
   const handleToggle = () => {
-    updateTodo({ id: _id, task, isCompleted: !isCompleted });
+    updateTodo({
+      id: _id,
+      task,
+      isCompleted: !isCompleted,
+      time: isCompleted ? new Date().toISOString() : time,
+    });
   };
 
   return (

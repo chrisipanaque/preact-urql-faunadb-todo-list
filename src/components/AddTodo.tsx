@@ -1,6 +1,6 @@
 import { Formik, Form, Field } from 'formik';
 import { useMutation } from 'urql';
-import { ADD_TODO_MUTATION } from '../api/queries';
+import { ADD_TODO_MUTATION } from '../api/queries/queries';
 
 const AddTodo: React.FunctionComponent = () => {
   const [, addTodo] = useMutation(ADD_TODO_MUTATION);
@@ -15,6 +15,7 @@ const AddTodo: React.FunctionComponent = () => {
         addTodo({
           task: values.task,
           isCompleted: false,
+          time: new Date().toISOString(),
         });
         resetForm({});
       }}
