@@ -21,9 +21,29 @@ const AddTodo: React.FunctionComponent = () => {
       }}
     >
       {() => (
-        <Form>
-          <Field type="text" id="task" name="task" />
-          <button type="submit">add</button>
+        <Form
+          style={{
+            paddingBottom: '10px',
+          }}
+        >
+          <Field
+            type="text"
+            id="task"
+            name="task"
+            style={{
+              fontFamily: 'times',
+              fontSize: '16px',
+              padding: '5px',
+            }}
+          />
+          <button
+            type="submit"
+            style={{
+              padding: '6px',
+            }}
+          >
+            add
+          </button>
         </Form>
       )}
     </Formik>
