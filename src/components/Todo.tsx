@@ -1,15 +1,19 @@
-const Todo = ({ todo, completeTodo, deleteTodo }: any) => {
-  const { _id, task, isCompleted } = todo;
+type TodoProps = {
+  task: string;
+  isCompleted: boolean;
+};
 
-  const handleChange = () => {
-    completeTodo(_id, task, !isCompleted);
-  };
+const Todo: React.FunctionComponent<TodoProps> = ({ task, isCompleted }) => {
+  // const handleChange = () => {
+  //   completeTodo(_id, task, !isCompleted);
+  // };
 
   return (
     <div>
-      <input type="checkbox" checked={isCompleted} onChange={handleChange} />
+      {/* <input type="checkbox" checked={isCompleted} onChange={handleChange} /> */}
       {task}
-      <button onClick={() => deleteTodo(_id)}>delete</button>
+      {`${isCompleted}`}
+      {/* <button onClick={() => deleteTodo(_id)}>delete</button> */}
     </div>
   );
 };

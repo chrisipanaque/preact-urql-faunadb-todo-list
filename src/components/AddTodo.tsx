@@ -2,7 +2,7 @@ import { Formik, Form, Field } from 'formik';
 import { useMutation } from 'urql';
 import { ADD_TODO_MUTATION } from '../api/queries';
 
-const AddTodo = () => {
+const AddTodo: React.FunctionComponent = () => {
   const [, something] = useMutation(ADD_TODO_MUTATION);
 
   return (

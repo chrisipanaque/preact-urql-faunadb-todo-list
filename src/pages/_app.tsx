@@ -1,22 +1,25 @@
 import React from 'react';
-import { client } from '../api/client';
-import { withUrqlClient, NextUrqlAppContext } from 'next-urql';
-import NextApp, { AppProps } from 'next/app';
+import { urqlClientConfig } from '../api/urqlClientConfig';
+import {
+  NextComponentType,
+  NextUrqlAppContext,
+  WithUrqlProps,
+  withUrqlClient,
+} from 'next-urql';
+import NextApp, { AppContext } from 'next/app';
+import { NextPageContext } from 'next';
 
-const App = ({ Component, pageProps }: AppProps) => {
+const App: NextComponentType = ({ Component, pageProps }: WithUrqlProps) => {
   return <Component {...pageProps} />;
 };
 
-App.getInitialProps = async (ctx: NextUrqlAppContext) => {
-  // @ts-ignore
+App.getInitialProps = async (
+  ctx: NextPageContext & AppContext & NextUrqlAppContext
+) => {
   const appProps = await NextApp.getInitialProps(ctx);
-
   return {
     ...appProps,
   };
 };
 
-export default withUrqlClient(client)(
-  // @ts-ignore
-  App
-);
+export default withUrqlClient(urqlClientConfig)(App);
