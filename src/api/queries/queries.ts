@@ -5,27 +5,30 @@ query {
       _id
       task
       isCompleted
+      time
     }
   }
 }
 `;
 
 export const ADD_TODO_MUTATION = `
-  mutation createTodo($task: String!, $isCompleted: Boolean!) {
-    createTodo(data: {task: $task, isCompleted: $isCompleted}) {
+  mutation createTodo($task: String!, $isCompleted: Boolean!, $time: Time!) {
+    createTodo(data: {task: $task, isCompleted: $isCompleted, time: $time}) {
       _id
       task
       isCompleted
+      time
     }
   }
 `;
 
 export const COMPLETE_TODO_MUTATION = `
-  mutation ($id: ID!, $task: String!, $isCompleted: Boolean!) {
-    updateTodo(id: $id, data: {task: $task, isCompleted: $isCompleted}) {
+  mutation ($id: ID!, $task: String!, $isCompleted: Boolean!, $time: Time!) {
+    updateTodo(id: $id, data: {task: $task, isCompleted: $isCompleted, time: $time}) {
       _id
       task
       isCompleted
+      time
     }
   }
 `;
@@ -36,6 +39,7 @@ export const DELETE_TODO_MUTATION = `
       _id
       task
       isCompleted
+      time
     }
   }
 `;
