@@ -10,11 +10,9 @@ const AllTodos: React.FunctionComponent = () => {
 
   return (
     <>
-      {allTodos.data.getTodos.data.map(
-        ({ _id, task, isCompleted }: TodoType) => (
-          <Todo key={_id} task={task} isCompleted={isCompleted} />
-        )
-      )}
+      {allTodos.data.getTodos.data.map((todo: TodoType) => (
+        <Todo key={todo._id} todo={todo} />
+      ))}
     </>
   );
 };

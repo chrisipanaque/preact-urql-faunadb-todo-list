@@ -3,7 +3,7 @@ import { useMutation } from 'urql';
 import { ADD_TODO_MUTATION } from '../api/queries';
 
 const AddTodo: React.FunctionComponent = () => {
-  const [, something] = useMutation(ADD_TODO_MUTATION);
+  const [, addTodo] = useMutation(ADD_TODO_MUTATION);
 
   return (
     <Formik
@@ -12,7 +12,7 @@ const AddTodo: React.FunctionComponent = () => {
         isCompleted: false,
       }}
       onSubmit={(values, { resetForm }) => {
-        something({
+        addTodo({
           task: values.task,
           isCompleted: false,
         });
