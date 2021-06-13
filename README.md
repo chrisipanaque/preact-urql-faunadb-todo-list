@@ -4,7 +4,7 @@ https://typescript-nextjs-urql-faunadb-todo-list.vercel.app/
 
 ## Languages
 
-- TypeScript
+- [TypeScript](https://www.typescriptlang.org/)
 
 ## Frontend
 
