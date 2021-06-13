@@ -1,6 +1,6 @@
-import { TodoType } from '../interfaces';
+import { TodoType } from '../types';
 import { useMutation } from 'urql';
-import { DELETE_TODO_MUTATION } from '../api/queries';
+import { COMPLETE_TODO_MUTATION, DELETE_TODO_MUTATION } from '../api/queries';
 
 type TodoProps = {
   todo: TodoType;
@@ -8,16 +8,18 @@ type TodoProps = {
 
 const Todo: React.FunctionComponent<TodoProps> = ({ todo }: TodoProps) => {
   const { _id, task, isCompleted } = todo;
+
   const [, deleteTodo] = useMutation(DELETE_TODO_MUTATION);
-  // const handleChange = () => {
-  //   completeTodo(_id, task, !isCompleted);
-  // };
+  const [, updateTodo] = useMutation(COMPLETE_TODO_MUTATION);
+
+  const handleToggle = () => {
+    updateTodo({ id: _id, task, isCompleted: !isCompleted });
+  };
 
   return (
     <div>
-      {/* <input type="checkbox" checked={isCompleted} onChange={handleChange} /> */}
+      <input type="checkbox" checked={isCompleted} onChange={handleToggle} />
       {task}
-      {`${isCompleted}`}
       <button onClick={() => deleteTodo({ id: _id })}>delete</button>
     </div>
   );

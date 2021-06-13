@@ -1,4 +1,4 @@
-import { TodoType } from '../interfaces';
+import { TodoType } from '../types';
 import { useQuery } from 'urql';
 import { ALL_TODOS_QUERY } from '../api/queries';
 import Todo from './Todo';

@@ -22,7 +22,7 @@ export const ADD_TODO_MUTATION = `
 
 export const COMPLETE_TODO_MUTATION = `
   mutation ($id: ID!, $task: String!, $isCompleted: Boolean!) {
-    updateTodo(id: $id, data: {task: $task, isCompleted: $isCompleted,}) {
+    updateTodo(id: $id, data: {task: $task, isCompleted: $isCompleted}) {
       _id
       task
       isCompleted
