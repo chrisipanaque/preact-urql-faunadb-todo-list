@@ -1,7 +1,7 @@
 import AddTodo from '../components/AddTodo';
 import AllTodos from '../components/AllTodos';
 
-const TodoApp = () => {
+const TodoApp: React.FunctionComponent = () => {
   return (
     <>
       <AddTodo />
