@@ -15,9 +15,15 @@ const AllTodos: React.FunctionComponent = () => {
 
   return (
     <>
-      {todos.map((todo: TodoType) => (
-        <Todo key={todo._id} todo={todo} />
-      ))}
+      {false ? (
+        <div>loading...</div>
+      ) : (
+        <>
+          {todos.map((todo: TodoType) => (
+            <Todo key={todo._id} todo={todo} />
+          ))}
+        </>
+      )}
     </>
   );
 };

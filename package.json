@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint . --ext .js,.ts,.tsx",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.{js,ts,tsx}' --write",
-    "final": "yarn prettier-format && yarn lint"
+    "final": "yarn prettier-format & yarn lint & yarn tsc -p tsconfig.json --noEmitOnError"
   },
   "dependencies": {
     "formik": "^2.2.9",

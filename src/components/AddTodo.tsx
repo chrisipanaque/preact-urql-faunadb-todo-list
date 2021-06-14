@@ -3,8 +3,8 @@ import { useMutation } from 'urql';
 import { ADD_TODO_MUTATION } from '../api/queries/queries';
 
 const AddTodo: React.FunctionComponent = () => {
-  const [, addTodo] = useMutation(ADD_TODO_MUTATION);
-
+  const [addResults, addTodo] = useMutation(ADD_TODO_MUTATION);
+  console.log('addResults', addResults);
   return (
     <Formik
       initialValues={{

@@ -1,11 +1,10 @@
-import { SyntheticEvent } from 'react';
+import { useState, SyntheticEvent } from 'react';
 import { TodoType } from '../types/types';
 import { useMutation } from 'urql';
 import {
   COMPLETE_TODO_MUTATION,
   DELETE_TODO_MUTATION,
 } from '../api/queries/queries';
-import { useState } from 'react';
 
 type TodoProps = {
   todo: TodoType;
@@ -16,8 +15,8 @@ const Todo: React.FunctionComponent<TodoProps> = ({ todo }: TodoProps) => {
   const [updatedTask, setUpdatedTask] = useState(task);
   const [toggleEdit, setToggleEdit] = useState(false);
 
-  const [, deleteTodo] = useMutation(DELETE_TODO_MUTATION);
-  const [, updateTodo] = useMutation(COMPLETE_TODO_MUTATION);
+  const [deleteResults, deleteTodo] = useMutation(DELETE_TODO_MUTATION);
+  const [updateResults, updateTodo] = useMutation(COMPLETE_TODO_MUTATION);
 
   const submitUpdateIsCompleted = () => {
     updateTodo({
@@ -49,7 +48,11 @@ const Todo: React.FunctionComponent<TodoProps> = ({ todo }: TodoProps) => {
     setUpdatedTask(event.target.value);
   };
 
-  return (
+  console.log('deleteResults', deleteResults);
+
+  return deleteResults.fetching ? (
+    <div>deleting...</div>
+  ) : (
     <div
       style={{
         display: 'flex',
@@ -90,7 +93,7 @@ const Todo: React.FunctionComponent<TodoProps> = ({ todo }: TodoProps) => {
           }}
           onClick={handleEditToggle}
         >
-          {task}
+          {updateResults.fetching ? <div>updating...</div> : <div>{task}</div>}
         </div>
       )}
 
